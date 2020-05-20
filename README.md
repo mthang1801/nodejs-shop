@@ -1,2 +1,2 @@
-# nodejs-shop
-Build shop app with nodejs
+## This NodeJS Tutorial is divided into many parts through branches
+

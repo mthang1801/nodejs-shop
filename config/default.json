@@ -1,0 +1,8 @@
+{ 
+  "MONGO_URI" : "mongodb+srv://mvt:Th@ng1995@cluster0-wqvyp.mongodb.net/test?retryWrites=true&w=majority",
+  "JWT_SECRET" : "jwt_secret",  
+  "SEND_GRID_KEY" : "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",
+  "SEND_GRID_NAME" : "node-shop",
+  "EMAIL_USER" : "t6cantho1@gmail.com",
+  "EMAIL_PSW" : "thangcha"
+}

@@ -1,0 +1,48 @@
+{
+  "name": "nodejs",
+  "version": "1.0.0",
+  "description": "expressjs ",
+  "main": "index.js",
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "bluebird": "^3.7.2",
+    "bug": "^1.2.0",
+    "config": "^3.3.1",
+    "connect-flash": "^0.1.1",
+    "connect-mongodb-session": "^2.3.1",
+    "csurf": "^1.11.0",
+    "ejs": "^3.1.2",
+    "express": "^4.17.1",
+    "express-handlebars": "^3.0.2",
+    "express-session": "^1.17.1",
+    "express-validator": "^6.5.0",
+    "fs-extra": "^9.0.0",
+    "handlebars": "^4.7.6",
+    "jsonwebtoken": "^8.5.1",
+    "mongodb": "^3.5.7",
+    "mongoose": "^5.9.14",
+    "mysql2": "^2.1.0",
+    "nodemailer": "^6.4.6",
+    "nodemailer-sendgrid-transport": "^0.2.0",
+    "pug": "^2.0.4",
+    "sequelize": "^5.21.8",
+    "uuid": "^8.0.0"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.3"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mthang1801/nodejs.git"
+  },
+  "author": "mvt",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mthang1801/nodejs/issues"
+  },
+  "homepage": "https://github.com/mthang1801/nodejs#readme"
+}

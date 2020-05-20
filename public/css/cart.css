@@ -1,0 +1,38 @@
+.cart-table{
+  margin : auto;
+  width : 80%;
+  text-align: center;
+  border : 1px solid rgba(100,100,100);
+  border-radius: 5px;
+}
+
+th, td{
+  padding : .5rem;
+}
+
+tbody > tr:nth-child(2n){
+  background-color: #e1f5fe;
+  color : #000;
+}
+
+tbody > tr:nth-child(2n):hover{
+  background-color: #b3e5fc;
+  color : #000;
+}
+
+tbody > tr:nth-child(2n-1){
+  background-color: #f0f4c3;
+  color : #000;
+}
+
+tbody > tr:nth-child(2n-1):hover{
+  background-color: #e6ee9c;
+  color : #000;
+}
+
+
+.cart-table__header{
+  background-color : #7cb342;
+  color : #fff;
+}
+
