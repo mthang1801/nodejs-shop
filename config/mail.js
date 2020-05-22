@@ -1,5 +1,4 @@
 const nodemailer = require('nodemailer');
-const sendgridTransport = require("nodemailer-sendgrid-transport");
 const config = require("config");
 
 const sendEmail = (to, subject, htmlContent) => {

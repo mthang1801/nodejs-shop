@@ -9,8 +9,8 @@ router.get("/add-product", auth.checkLogin, adminController.getAddProduct);
 router.post("/add-product", auth.checkLogin, [
   body("title", "title must have at least 3 characters")  
     .isLength({min : 3}),    
-  body("imageUrl" , "imageURL mast be url file")
-    .isURL(),
+  // body("imageUrl", "Image must be url")
+  //   .isURL(),
   body("price", "price must be double type")
     .isFloat(),
   body("description","description at least 5 characters")  
@@ -21,9 +21,7 @@ router.get("/edit-product/:productId", auth.checkLogin,adminController.getEditPr
 
 router.post("/edit-product", auth.checkLogin, [
   body("title", "title must have at least 3 characters")    
-    .isLength({min : 3}),    
-  body("imageUrl" , "imageURL mast be url file")
-    .isURL(),
+    .isLength({min : 3}),     
   body("price", "price must be double type")
     .isFloat(),
   body("description","description at least 5 characters")    

@@ -5,13 +5,14 @@ const shopRoutes = require("./routes/shop");
 const authRoutes = require("./routes/auth");
 const User = require("./models/user");
 const errorsRoutes = require('./controllers/errors');
-const ejs = require("ejs");
 const connectDB = require("./util/database");
 const config = require("config");
 const session = require("express-session");
 const MongoDBStore = require("connect-mongodb-session")(session);
 const csrf = require("csurf");
 const flash = require("connect-flash");
+const bodyParser = require("body-parser");
+const multer =require("multer");
 const app = express();
 
 const store = new MongoDBStore({
@@ -20,14 +21,37 @@ const store = new MongoDBStore({
 });
 const csrfProtection = csrf();
 
-app.use(express.json());
-app.use(express.urlencoded({ extended : false}));
-app.use(express.static(path.join(__dirname, "public", "/")));
-
-
 // app.engine("handlebars", expressHbs({layoutsDir : "views/layouts/", defaultLayout : "main-layout", extname : "hbs"}));
 app.set("view engine", "ejs");
-app.set("views", "./views");
+app.set("views", "views");
+
+const fileStorage = multer.diskStorage({
+  destination: (req, file, cb) => {
+    cb(null, "images");
+  },
+  filename: (req, file, cb) => {
+    cb(null, new Date().toISOString() + '-' + file.originalname);
+  }
+});
+
+const fileFilter = (req, file, cb) => {
+  if (
+    file.mimetype === 'image/png' ||
+    file.mimetype === 'image/jpg' ||
+    file.mimetype === 'image/jpeg'
+  ) {
+    cb(null, true);
+  } else {
+    cb(null, false);
+  }
+};
+
+app.use(bodyParser.urlencoded({ extended : false}));
+app.use(
+  multer({ storage: fileStorage, fileFilter: fileFilter }).single('image')
+);
+app.use(express.static(path.join(__dirname, "public", "/")));
+app.use( "/images", express.static(path.join(__dirname, "images")));
 app.use(session({ secret : "mySecret", resave: false, saveUninitialized : false, store : store}));
 app.use(csrfProtection);
 app.use(flash());
@@ -44,18 +68,17 @@ app.use(async(req, res, next) => {
     return next();
   }
   try {
-    let user = await User.findById(req.session.user._id) ; 
-    throw new Error("Dummy");
+    let user = await User.findById(req.session.user._id) ;   
     if(!user){
       return next();
     }
     req.user = user;
     next();
   } catch (error) {
+    console.log(error);
     next(new Error(error));
   }
 });
-
 
 app.use(shopRoutes);
 app.use(authRoutes);
@@ -64,11 +87,11 @@ app.get("/500",errorsRoutes.get500Page );
 app.use("*", errorsRoutes.get404Page);
 
 
-app.use((error,req, res, next) => {
-  res.status(500).render("500" , { 
-    pageTitle : "Error!",
+app.use((error,req, res, next) => {  
+  return res.status(500).render("500", {
     path : "/500",
-    isAuthenticated : req.session.isLoggedIn,
+    pageTitle : "Error!",
+    isAuthenticated : req.session.isLoggedIn
   })
 })
 
