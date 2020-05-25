@@ -28,7 +28,7 @@ router.post("/edit-product", auth.checkLogin, [
     .isLength({min: 5, max : 500 })   
 ],adminController.postEditProduct);
 
-router.post("/delete-product",auth.checkLogin, adminController.postDeleteProduct);
+router.delete("/products/:productId",auth.checkLogin, adminController.deleteProduct);
 
 router.get("/products", auth.checkLogin, adminController.getProducts);
 

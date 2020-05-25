@@ -28,6 +28,7 @@
     "pdfkit": "^0.11.0",
     "pug": "^2.0.4",
     "sequelize": "^5.21.8",
+    "stripe": "^8.55.0",
     "uuid": "^8.0.0"
   },
   "devDependencies": {
