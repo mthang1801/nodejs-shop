@@ -3,6 +3,15 @@
   "version": "1.0.0",
   "description": "expressjs ",
   "main": "index.js",
+  "engines": {
+    "node" : "13.14.0"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "NODE_ENV=production MONGO_USER=mvt MONGO_PASSWORD=Th@ng1995 STRIPE_KEY=sk_test_gRVFD4jSoam6nmNkUzn1L3IP00uiTerqJ0 node app.js",
+    "start-server" : "node app.js",
+    "dev": "nodemon app.js"
+  },
   "dependencies": {
     "bcryptjs": "^2.4.3",
     "bluebird": "^3.7.2",
@@ -36,11 +45,6 @@
   },
   "devDependencies": {
     "nodemon": "^2.0.3"
-  },
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "NODE_ENV=production MONGO_USER=mvt MONGO_PASSWORD=Th@ng1995 SRIPE_KEY=sk_test_gRVFD4jSoam6nmNkUzn1L3IP00uiTerqJ0 node server.js ",
-    "start:dev": "nodemon server.js"
   },
   "repository": {
     "type": "git",
