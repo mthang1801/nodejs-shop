@@ -13,6 +13,7 @@
          <a href="/?page=<%=nextPage %>"><%= nextPage %></a>
      <%}%>
      <%if (lastPage !== currentPage && nextPage !== lastPage) {%>
+         <span style="align-self: flex-end;">...</span>
          <a href="/?page=<%=lastPage %>"><%= lastPage %></a>
      <%}%>
  </section>

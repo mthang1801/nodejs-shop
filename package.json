@@ -8,6 +8,7 @@
     "bluebird": "^3.7.2",
     "body-parser": "^1.19.0",
     "bug": "^1.2.0",
+    "compression": "^1.7.4",
     "config": "^3.3.1",
     "connect-flash": "^0.1.1",
     "connect-mongodb-session": "^2.3.1",
@@ -19,9 +20,11 @@
     "express-validator": "^6.5.0",
     "fs-extra": "^9.0.0",
     "handlebars": "^4.7.6",
+    "helmet": "^3.22.0",
     "jsonwebtoken": "^8.5.1",
     "mongodb": "^3.5.7",
     "mongoose": "^5.9.14",
+    "morgan": "^1.10.0",
     "multer": "^1.4.2",
     "mysql2": "^2.1.0",
     "nodemailer": "^6.4.6",
@@ -36,7 +39,8 @@
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "nodemon server.js"
+    "start": "NODE_ENV=production MONGO_USER=mvt MONGO_PASSWORD=Th@ng1995 SRIPE_KEY=sk_test_gRVFD4jSoam6nmNkUzn1L3IP00uiTerqJ0 node server.js ",
+    "start:dev": "nodemon server.js"
   },
   "repository": {
     "type": "git",
