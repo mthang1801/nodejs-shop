@@ -76,8 +76,8 @@ app.use(
 app.use(csrfProtection);
 app.use(flash());
 
-const privateKey = fs.readFileSync("server.key");
-const certificate = fs.readFileSync("server.cert");
+// const privateKey = fs.readFileSync("server.key");
+// const certificate = fs.readFileSync("server.cert");
 
 app.use((req, res, next) => {
   res.locals.isAuthenticated = req.session.isLoggedIn;
@@ -121,9 +121,10 @@ const port = process.env.PORT || 5000;
 connectDB()
   .then((result) => {
     console.log("DB connected");
-    https
-      .createServer({ key: privateKey, cert: certificate }, app)
-      .listen(port, console.log(`Server is running on port ${port}`));
+    // https
+    //   .createServer({ key: privateKey, cert: certificate }, app)
+    //   .listen(port, console.log(`Server is running on port ${port}`));
+    app.listen(port, console.log(`Server is running on port ${port}`));
   })
   .catch((err) => {
     console.log(err);
