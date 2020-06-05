@@ -44,7 +44,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "NODE_ENV=production MONGO_USER=mvt MONGO_PASSWORD=Th@ng1995 SRIPE_KEY=sk_test_gRVFD4jSoam6nmNkUzn1L3IP00uiTerqJ0 node server.js",
     "start-server" : "node server.js",
-    "dev": "nodemon server.js"
+    "dev": "node server.js"
   },
   "repository": {
     "type": "git",
